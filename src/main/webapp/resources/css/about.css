@@ -1,0 +1,97 @@
+* {
+  overflow-x: auto;
+  white-space: nowrap
+}
+
+.navClass {
+  background-color:rgba(34, 34, 34, 0.3);
+  border-bottom: 2px solid red;
+  
+}
+li a{
+  color: white !important;
+  font-weight:600 !important;
+}
+
+header {
+  height: 100%;
+  width: 100%;
+ background-color:rgba(34, 34, 34, 0.6);
+ 
+}
+
+.aboutTitle{
+  color: white;
+  padding-top:20px;
+  text-align: center;
+  font-size: 4em;
+}
+
+.aboutHeader{
+  margin-top:35px;
+  margin-bottom: 35px;
+  color: white;
+  padding-top:20px;
+  text-align: center;
+
+}
+
+.messy{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 10px 10px 5px lightblue;
+}
+
+.organized{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 10px 10px 5px lightblue;
+}
+
+.howHeader{
+  color: white;
+  padding-top:60px;
+  text-align: center;
+}
+
+ .steps{
+  color: white;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.pageImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid red;
+
+}
+
+ @media only screen and (max-width: 1000px) {
+  .fntSize {
+  	 font-size:90%;
+  }
+ }
+
+@media only screen and (max-width: 700px) {
+  .pageImg {
+  	 width: 50%;
+ 	 height: 50%;
+  }
+}
+
+ @media only screen and (max-width: 700px) {
+  .steps {
+  	 font-size: .75em;
+  }
+ }
+ 
+  @media only screen and (max-width: 500px) {
+  .steps {
+  	 font-size: .55em;
+  }
+ }
