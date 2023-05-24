@@ -8,8 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signup</title>
-  <link rel="icon" href="../Images/favicon.ico" type="image/x-icon"> 
-  <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="${pageContext.request.contextPath}/resources/images/TrackThat.png" type="image/x-icon"> 
+  <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/TrackThat.png" type="image/x-icon"> 
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}">Home</a>
+            <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="${pageContext.request.contextPath}/about">About</a>
