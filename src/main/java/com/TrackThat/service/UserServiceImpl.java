@@ -44,8 +44,6 @@ public class UserServiceImpl implements UserService {
 
 		    try {
 		        transaction = currentSession.beginTransaction();
-
-//		        Session currentSession = sessionFactory.openSession(); // Open a new session
 		        Query<User> theQuery = currentSession.createQuery("from User where userName=:theUserName", User.class);
 		        theQuery.setParameter("theUserName", theUserName);
 		        User user = theQuery.uniqueResult();
@@ -64,22 +62,6 @@ public class UserServiceImpl implements UserService {
 		    } finally {
 		        currentSession.close();
 		    }
-    	
-    	
-    	
-    	
-//        Session currentSession = sessionFactory.openSession(); // Open a new session
-//        Query<User> theQuery = currentSession.createQuery("from User where userName=:theUserName", User.class);
-//        theQuery.setParameter("theUserName", theUserName);
-//        User user = theQuery.uniqueResult();
-//        
-//        // Close the session
-//        currentSession.close();
-//
-//        if (user != null) {
-//            return user;
-//        }
-//        return null;
     }
     
     
@@ -188,7 +170,6 @@ public class UserServiceImpl implements UserService {
 		        transaction = currentSession.beginTransaction();
 
 		        User user = currentSession.get(User.class, UserId);
-				System.out.println(user.getUserName());
 				theUserRecord.setUser(user);
 				currentSession.saveOrUpdate(theUserRecord);
 
