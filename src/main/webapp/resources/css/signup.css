@@ -20,40 +20,40 @@ li a{
   font-weight:600 !important;
 }
 
-.pageBackground{
-  background-color:rgba(34, 34, 34, 0.6);
+.pageBackground {
+  background-color: rgba(34, 34, 34, 0.6);
   width: 100vw;
-  height: 130vh;
-  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 0 4vh;
 }
 
-.formCard{
-  margin: auto;
-  width: 40%;
+.formCard {
   color:white;
-  padding-bottom: 50px; 
   border: 2px solid white;
-  border-radius: 25px;
-  padding-left: 20px;
-  padding-right: 20px; 
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 h1{
   color: white;
   text-align: center;
-  padding-top: 100px;
+  padding-top: 30px;
 }
 
-.pageImg{
+.pageImg {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
-.signUpHeader{
-	margin-top: -40px;
-	margin-bottom: 20px;
-} 
+.signUpHeader {
+  margin-bottom: 2vh;
+}
 
 .PWTest {
 	font-size: .65em;
@@ -64,4 +64,23 @@ h1{
 	color: white;
 	font-size: 1.5em;
 	padding-top:20px;
+}
+
+
+@media screen and (max-height: 667px) {
+  .pageImg {
+    height: 15vh;
+    min-height: 80px;
+    max-height: 100px;
+    max-width: 100px;
+    min-width: 80px;
+  }
+  
+  .formCard {
+    padding: 0.8rem;
+  }
+  
+  .mb-3 {
+    margin-bottom: 0.5rem !important;
+  }
 }
