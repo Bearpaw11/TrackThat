@@ -66,7 +66,7 @@
       			Your records will automatically be sorted by artist</li> 
       			<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home.png" alt="Home Page">
       		<li class="steps">6. Use the "Add Record to Wish List" button to create a wish list of records you would like to acquire</li>  
-     	   <li class="steps">7. Use the Update and delete buttons as needed</li>
+     	   <li class="steps">7. Use the Update and Delete buttons as needed</li>
       		<br>
       		<br>
       		<br>

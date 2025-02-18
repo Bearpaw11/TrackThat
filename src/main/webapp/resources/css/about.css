@@ -1,6 +1,5 @@
 * {
-  overflow-x: auto;
-  white-space: nowrap
+  overflow-x: hidden;
 }
 
 .navClass {
@@ -36,18 +35,13 @@ header {
 
 }
 
-.messy{
+.messy, .organized {
   display: block;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 10px 10px 5px lightblue;
-}
-
-.organized{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 10px 10px 5px lightblue;
+  max-width: 90%;
+  height: auto;
 }
 
 .howHeader{
@@ -56,11 +50,24 @@ header {
   text-align: center;
 }
 
- .steps{
+.steps {
   color: white;
   padding-top: 25px;
   padding-bottom: 15px;
   text-align: center;
+  white-space: normal;
+  max-width: 90%;
+  margin: 0 auto;
+  list-style-position: inside;
+  font-size: 1.25rem; 
+}
+
+header ul {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pageImg {
@@ -68,30 +75,35 @@ header {
   margin-left: auto;
   margin-right: auto;
   border: 2px solid red;
-
+  max-width: 90%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
- @media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1000px) {
   .fntSize {
   	 font-size:90%;
   }
- }
-
-@media only screen and (max-width: 700px) {
-  .pageImg {
-  	 width: 50%;
- 	 height: 50%;
-  }
 }
 
- @media only screen and (max-width: 700px) {
-  .steps {
-  	 font-size: .75em;
+@media only screen and (max-width: 700px) {
+  .messy, .organized {
+    width: 90%;
+    height: auto;
   }
- }
- 
-  @media only screen and (max-width: 500px) {
-  .steps {
-  	 font-size: .55em;
+  
+  .aboutTitle {
+    font-size: 2.5em;
   }
- }
+  
+  .aboutHeader {
+    font-size: 1.5em;
+  }
+  .steps {
+    font-size: 1.5rem; 
+    line-height: 1.4;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
