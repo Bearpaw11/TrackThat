@@ -1,63 +1,69 @@
 * {
   margin: 0;
   padding: 0;
- 
+}
+
+html {
+  background-color: rgba(34, 34, 34, 0.6);
+  width: 100vw;
+  height: 100vh;
 }
 
 .navClass {
-  background-color:rgba(34, 34, 34, 0.3);
+  background-color: rgba(34, 34, 34, 0.3);
   border-bottom: 2px solid red;
   color: white;
 }
 
-li a{
+li a {
   color: white !important;
-  font-weight:600 !important;
+  font-weight: 600 !important;
 }
-
-
-
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
 }
 
-.pageBackground{
-  background-color:rgba(34, 34, 34, 0.6);
+.pageBackground {
+  background-color: rgba(34, 34, 34, 0.6);
   width: 100vw;
-  height: 140vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1vh, 2vh, 4vh) 0;
 }
 
-.formCard{
-  margin: auto;
-  width: 40%;
-  color:white;
-  padding-bottom: 50px; 
+.formCard {
+  color: white;
   border: 2px solid white;
+  padding: clamp(0.8rem, 3vw, 2rem);
   border-radius: 25px;
-  padding-left: 20px;
-  padding-right: 20px; 
+  width: min(90%, 500px);
+  margin: 0 auto;
 }
 
-h1{
+h1 {
   color: white;
   text-align: center;
-  padding-top: 100px;
+  padding-top: clamp(15px, 3vh, 30px);
 }
 
-.pageImg{
+.pageImg {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: clamp(120px, 20vw, 300px);
+  height: auto;
+  aspect-ratio: 1;
 }
 
-.list{
-  margin-left:-30px;
+.list {
+  margin-left: clamp(-30px, -3vw, -20px);
 }
 
-.btn{
-	width: 100px;
+.btn {
+  width: clamp(100px, 15vw, 150px);
 }

@@ -1,65 +1,67 @@
 * {
   margin: 0;
   padding: 0;
- 
+}
+
+html {
+  background-color: rgba(34, 34, 34, 0.6);
+  width: 100vw;
+  height: 100vh;
 }
 
 .navClass {
-  background-color:rgba(34, 34, 34, 0.3);
+  background-color: rgba(34, 34, 34, 0.3);
   border-bottom: 2px solid red;
-  color: white;
 }
 
-li a{
+li a {
   color: white !important;
-  font-weight:600 !important;
+  font-weight: 600 !important;
 }
 
-
-.pageBackground{
-  background-color:rgba(34, 34, 34, 0.6);
+.pageBackground {
+  background-color: rgba(34, 34, 34, 0.6);
   width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2vh 0 4vh;
+  padding: clamp(1vh, 2vh, 4vh) 0;
 }
 
-.formCard{
-  color:white;
-  padding: 2rem;
+.formCard {
+  color: white;
   border: 2px solid white;
+  padding: clamp(0.8rem, 3vw, 2rem);
   border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
+  width: min(90%, 500px);
   margin: 0 auto;
-  height: auto;       /* Allow height to adjust to content */
-  min-height: 0; 
 }
 
-h1{
+.signInHeader {
   color: white;
   text-align: center;
-  padding-top: 100px;
+  padding-top: clamp(15px, 3vh, 30px);
 }
 
-.pageImg{
+.pageImg {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: clamp(120px, 20vw, 300px);
+  height: auto;
+  aspect-ratio: 1;
 }
 
-.signInHeader{
-  margin-top: -80px; 
-	margin-bottom: 20px;
-} 
+.error {
+  text-align: center;
+  color: white;
+  font-size: clamp(1em, 2vw, 1.5em);
+  padding-top: clamp(10px, 2vh, 20px);
+}
 
-.error{
-	text-align: center;
-	color: white;
-	font-size: 1.5em;
-	padding-top:20px;
+.mb-3 {
+  margin-bottom: clamp(0.5rem, 2vh, 1rem) !important;
 }
 
 @media screen and (max-height: 667px) {
