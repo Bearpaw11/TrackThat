@@ -28,10 +28,7 @@ public class SiteController {
 			
 	@Autowired
 	private PasswordEncoder encoder;
-	
-			
-	@Autowired
-	private UserRepository userRepository;
+
 	
 	@GetMapping("/")
 	public String home() {
@@ -51,13 +48,6 @@ public class SiteController {
         return "signup";
     }
 
-//    @PostMapping("/signup")
-//    public String signup(@ModelAttribute("user") User user) {
-//        // Save the user to the database
-//        userRepository.save(user);
-//        return "redirect:/login";
-//    }
-    
 	
 	@PostMapping("saveUser")
 	public String saveUser(@ModelAttribute("user") User theUser, Model theModel) {
@@ -88,34 +78,6 @@ public class SiteController {
 	}
 
 
-//	@PostMapping("saveUser")
-//		public String saveUser(@ModelAttribute("user") User theUser, Model theModel) {
-//	
-//	//set user to the userName entered
-//		User user = userService.verifyLogin(theUser.getUserName());
-//	
-//	//check to see is the user already exists. If null then the user does not exist in database
-//		if(user == null) {
-//		
-//	//encrypting the user password
-//		String encryptPassword = encoder.encode(theUser.getPassword());
-//	
-//	//setting the user password to encryptPassword
-//		theUser.setPassword(encryptPassword);
-//	
-//	//save the user using the service
-//		userService.saveUser(theUser);
-//	
-//	//redirect to the sign in page
-//		return "redirect:/signin";
-//		} else {
-//		theModel.addAttribute("UserError", "Error, User name already exists");
-//		}
-//	//add a new user to the model and return back to the signup page
-//		theModel.addAttribute("user", new User());
-//		return "signup";
-//	}
-
 	@GetMapping("/signin")
 	public String signin(Model theModel) {
 	
@@ -128,8 +90,7 @@ public class SiteController {
 	//Route to the signin page
 		return "signin";
 	}
-//
-//
+
 	//verifies user and directs to the user home page
 	@PostMapping("/loginUser")
 	public String verifyLogin(@ModelAttribute("loginHelper") LoginHelper loginHelper, Model theModel, HttpSession session){
