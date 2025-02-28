@@ -70,7 +70,7 @@ public class SiteController {
 		//redirect to the sign in page
 		return "redirect:/signin";
 		} else {
-			theModel.addAttribute("UserError", "Error, User name already exists");
+			theModel.addAttribute("UserError", "Error, User  name already exists");
 		}
 		//add a new user to the model and return back to the signup page
 		theModel.addAttribute("user", new User());
