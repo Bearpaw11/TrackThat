@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class SiteController {
 
 	
 	@PostMapping("saveUser")
-	public String saveUser(@ModelAttribute("user") User theUser, Model theModel) {
+	public String saveUser(@ModelAttribute("user") User theUser, Model theModel, RedirectAttributes redirectAttributes) {
 		
 		//set user to the userName entered
 		User user = userService.verifyLogin(theUser.getUserName());
@@ -66,6 +67,9 @@ public class SiteController {
 		
 		//save the user using the service
 		userService.signupUser(theUser);
+		
+		// Pass the username to the signin page
+		redirectAttributes.addFlashAttribute("signupUserName", theUser.getUserName());
 		
 		//redirect to the sign in page
 		return "redirect:/signin";
