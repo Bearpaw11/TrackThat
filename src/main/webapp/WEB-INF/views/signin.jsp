@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,8 +42,14 @@
   </nav>
 
   <div class="pageBackground">
- <!--  error message if signin fails -->
-  <div class="error">${loginError}</div>
+    <!-- Show thank you banner if just signed up -->
+    <c:if test="${not empty signupUserName}">
+      <div class="alert alert-success" style="background-color:#fff; color:#dc3545; font-weight:bold; font-size:1.1rem;">
+        Thank you for signing up, ${signupUserName}!
+      </div>
+    </c:if>
+    <!--  error message if signin fails -->
+    <div class="error">${loginError}</div>
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
       <h1 class="signInHeader">Sign In</h1>
