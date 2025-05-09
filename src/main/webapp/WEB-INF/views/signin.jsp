@@ -42,7 +42,7 @@
   </nav>
 
   <div class="pageBackground">
-    <!-- Show thank you banner if just signed up -->
+    <!-- Show thank you banner if just user just signed up -->
     <c:if test="${not empty signupUserName}">
       <div class="alert alert-success" style="background-color:#fff; color:#dc3545; font-weight:bold; font-size:1.1rem;">
         Thank you for signing up, ${signupUserName}!
