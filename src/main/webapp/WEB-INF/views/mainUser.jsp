@@ -37,6 +37,54 @@
 	<div class="pageBackground">
 		<h1 class="welcome">Welcome, ${loggedInUser.userName}!</h1>
 		<h3 class="greeting">What would you like to do today?</h3>
+
+		<div class="search-box">
+			<form action="search" method="get" class="mb-4">
+				<form action="search" method="get" class="mb-4">
+					<div class="search-bar-row">
+						<input type="text" name="query" placeholder="Search for artist or album..." 
+							   class="form-control" value="${param.query}" />
+						<button type="submit" class="search-btn">Search</button>
+					</div>
+				</form>
+			</form>
+			
+			<c:if test="${not empty searchError}">
+				<div class="alert alert-danger">${searchError}</div>
+			</c:if>
+			
+			<c:if test="${not empty searchResults}">
+				<h1 class="current">Search Results</h1>
+				<div class="CardDiv">
+					<c:forEach var="result" items="${searchResults.results}">
+						<div class="card cardStyle" style="width: 22rem;">
+							<img src="${result.thumb}" class="card-img-top" alt="Record Img">
+							<div class="card-body">
+								<h6 class="card-title cardInfo">
+									<span class="title">Artist:</span> ${result.artist}
+								</h6>
+								<h6 class="card-title cardInfo">
+									<span class="title">Album Title:</span> ${result.title}
+								</h6>
+								<h6 class="card-title cardInfo">
+									<span class="title">Year:</span> ${result.year}
+								</h6>
+								<button type="button" class="btn btn-danger mybtn">
+									<a class="button" href="addCollection?title=${result.title}&artist=${result.artist}&imageUrl=${result.thumb}&year=${result.year}">
+										Add to Collection
+									</a>
+								</button>
+								<button type="button" class="btn btn-danger mybtn2">
+									<a class="button" href="addWish?title=${result.title}&artist=${result.artist}&imageUrl=${result.thumb}&year=${result.year}">
+										Add to Wish List
+									</a>
+								</button>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</c:if>
+		</div>
 		<div class="buttonDiv">
 			<input type="button" value="Add record to collection"
 				   onclick="window.location.href='addCollection'; return false;"
