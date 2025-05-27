@@ -44,7 +44,8 @@
 					<div class="search-bar-row">
 						<input type="text" name="query" placeholder="Search for artist or album..." 
 							   class="form-control" value="${param.query}" />
-						<button type="submit" class="search-btn">Search</button>
+						<button type="submit" class="search-btn">Search for Artist</button>
+						<button type="submit" class="search-btn">Search for Album</button>
 					</div>
 				</form>
 			</form>
