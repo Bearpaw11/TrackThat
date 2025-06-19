@@ -57,22 +57,13 @@
 					<div class="CardDiv">
 						<c:forEach var="result" items="${searchResults}">
 							<div class="card cardStyle" style="width: 22rem;">
-								<img src="${result.thumb != null ? result.thumb : result.cover_image}"
-									class="card-img-top" alt="Record Img">
+								<img src="${result.thumb != null ? result.thumb : result.cover_image}" class="card-img-top" alt="Record Img">
 								<div class="card-body">
 									<h6 class="card-title cardInfo">
-										<span class="title">Artist:</span>
-										<c:choose>
-											<c:when test="${not empty result.artist}">
-												${result.artist}
-											</c:when>
-											<c:otherwise>
-												${param.query}
-											</c:otherwise>
-										</c:choose>
+										<span class="title">Artist:</span> ${result.artistName}
 									</h6>
 									<h6 class="card-title cardInfo">
-										<span class="title">Album Title:</span> ${result.title}
+										<span class="title">Album Title:</span> ${result.albumTitle}
 									</h6>
 									<c:if test="${not empty result.year}">
 										<h6 class="card-title cardInfo">
@@ -84,19 +75,19 @@
 									</h6>
 									<button type="button" class="btn btn-danger mybtn">
 										<a class="button"
-											href="addCollection?title=${result.title}&artist=${result.artist != null ? result.artist : param.query}&imageUrl=${result.thumb != null ? result.thumb : result.cover_image}">
+										   href="addCollection?title=${result.albumTitle}&artist=${result.artistName}&imageUrl=${result.thumb != null ? result.thumb : result.cover_image}">
 											Add to Collection
 										</a>
 									</button>
 									<button type="button" class="btn btn-danger mybtn2">
 										<a class="button"
-											href="addWish?title=${result.title}&artist=${result.artist != null ? result.artist : param.query}&imageUrl=${result.thumb != null ? result.thumb : result.cover_image}">
+										   href="addWish?title=${result.albumTitle}&artist=${result.artistName}&imageUrl=${result.thumb != null ? result.thumb : result.cover_image}">
 											Add to Wish List
 										</a>
 									</button>
 								</div>
 							</div>
-						</c:forEach>
+						</c:forEach>	
 					</div>
 				</c:if>
 

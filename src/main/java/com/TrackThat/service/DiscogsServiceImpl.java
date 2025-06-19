@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 public class DiscogsServiceImpl implements DiscogsService {
@@ -20,32 +22,47 @@ public class DiscogsServiceImpl implements DiscogsService {
     public List<Map<String, Object>> searchByArtist(String artist) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         List<Map<String, Object>> resultsList = new ArrayList<>();
+        Set<String> seen = new HashSet<>();
 
-        // Step 1: Search for the artist to get the artist ID
-        JsonNode response = discogsRepository.search(artist, "artist");
-        String artistId = null;
+        // Directly search for releases by artist and vinyl format
+        JsonNode response = discogsRepository.searchByArtistAndFormat(artist, "Vinyl");
         if (response.has("results")) {
             for (JsonNode node : response.get("results")) {
-                String artistName = node.get("title").asText();
-                if (artistName != null && artistName.equalsIgnoreCase(artist)) {
-                    artistId = node.get("id").asText();
-                    break;
-                }
-            }
-        }
-        // Step 2: If artist found, get their releases
-        if (artistId != null) {
-            JsonNode releasesResponse = discogsRepository.getArtistReleases(artistId);
-            if (releasesResponse.has("releases")) {
-                for (JsonNode release : releasesResponse.get("releases")) {
-                    // Optionally, filter by artist name again if needed
-                    String artistField = release.has("artist") ? release.get("artist").asText() : null;
-                    if (artistField != null && artistField.equalsIgnoreCase(artist)) {
-                        resultsList.add(mapper.convertValue(release, Map.class));
+                // 1. Parse title into artist and album
+                String fullTitle = node.has("title") ? node.get("title").asText() : null;
+                if (fullTitle != null && fullTitle.contains(" - ")) {
+                    String[] parts = fullTitle.split(" - ", 2);
+                    String artistName = parts[0].trim();
+                    String albumTitle = parts[1].trim();
+                    String year = node.has("year") ? node.get("year").asText() : "";
+                    // Only add if artist name matches (case-insensitive, partial match allowed)
+                    if (artistName.toLowerCase().contains(artist.toLowerCase())) {
+                        String thumb = node.has("thumb") ? node.get("thumb").asText() : null;
+                        if (thumb == null || thumb.isEmpty()) continue; // Skip if no image
+
+                        String uniqueKey = artistName + "|" + albumTitle + "|" + year;
+                        if (seen.contains(uniqueKey)) continue; // Skip duplicates
+                        seen.add(uniqueKey);
+
+                        Map<String, Object> result = mapper.convertValue(node, Map.class);
+                        result.put("albumTitle", albumTitle);
+                        result.put("artistName", artistName);
+                        resultsList.add(result);
                     }
                 }
             }
         }
+        resultsList.sort((a, b) -> {
+            String artistA = (a.get("artistName") != null) ? ((String) a.get("artistName")).toLowerCase() : "";
+            String artistB = (b.get("artistName") != null) ? ((String) b.get("artistName")).toLowerCase() : "";
+            boolean aHasParen = artistA.matches(".*\\(\\d+\\)$");
+            boolean bHasParen = artistB.matches(".*\\(\\d+\\)$");
+            if (aHasParen && !bHasParen)
+                return 1; // a goes after b
+            if (!aHasParen && bHasParen)
+                return -1; // a goes before b
+            return artistA.compareTo(artistB); // fallback: alphabetical
+        });
         return resultsList;
     }
 
@@ -54,19 +71,37 @@ public class DiscogsServiceImpl implements DiscogsService {
     ObjectMapper mapper = new ObjectMapper();
     List<Map<String, Object>> resultsList = new ArrayList<>();
 
-    JsonNode response = discogsRepository.search(album, "release");
+    JsonNode response = discogsRepository.searchByAlbumAndFormat(album, "release");
     if (response.has("results")) {
         for (JsonNode node : response.get("results")) {
+            // 1. Filter for Vinyl format
+            boolean isVinyl = false;
+            if (node.has("format")) {
+                for (JsonNode formatNode : node.get("format")) {
+                    if (formatNode.asText().equalsIgnoreCase("Vinyl")) {
+                        isVinyl = true;
+                        break;
+                    }
+                }
+            }
+            if (!isVinyl) continue;
+
+            // 2. Parse title into artist and album
             String fullTitle = node.has("title") ? node.get("title").asText() : null;
             if (fullTitle != null && fullTitle.contains(" - ")) {
                 String[] parts = fullTitle.split(" - ", 2);
+                String artistName = parts[0].trim();
                 String albumTitle = parts[1].trim();
+                // Only add if album title matches the search (case-insensitive)
                 if (albumTitle.equalsIgnoreCase(album)) {
-                    resultsList.add(mapper.convertValue(node, Map.class));
+                    Map<String, Object> result = mapper.convertValue(node, Map.class);
+                    result.put("albumTitle", albumTitle);
+                    result.put("artistName", artistName);
+                    resultsList.add(result);
                 }
             }
         }
     }
-    return resultsList;
-}
+        return resultsList;
+    }
 }

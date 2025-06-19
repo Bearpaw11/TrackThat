@@ -25,23 +25,26 @@ public class DiscogsRepository {
     private final String baseUrl = "https://api.discogs.com";
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public JsonNode search(String query, String type) throws Exception {
+     public JsonNode searchByArtistAndFormat(String artist, String format) throws Exception {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8.toString());
-            String searchUrl = baseUrl + "/database/search?q=" + encodedQuery + "&type=" + type;
+            String encodedArtist = URLEncoder.encode(artist, StandardCharsets.UTF_8.toString());
+            String encodedFormat = URLEncoder.encode(format, StandardCharsets.UTF_8.toString());
+            String searchUrl = baseUrl + "/database/search?artist=" + encodedArtist + "&format=" + encodedFormat + "&type=release";
             HttpGet request = new HttpGet(searchUrl);
             request.setHeader("User-Agent", "TrackThat/1.0");
             request.setHeader("Authorization", "Discogs key=" + consumerKey + ", secret=" + consumerSecret);
-    
+
             String response = EntityUtils.toString(httpClient.execute(request).getEntity());
             return objectMapper.readTree(response);
         }
     }
 
-    public JsonNode getArtistReleases(String artistId) throws Exception {
+    public JsonNode searchByAlbumAndFormat(String album, String format) throws Exception {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            String url = baseUrl + "/artists/" + artistId + "/releases";
-            HttpGet request = new HttpGet(url);
+            String encodedAlbum = URLEncoder.encode(album, StandardCharsets.UTF_8.toString());
+            String encodedFormat = URLEncoder.encode(format, StandardCharsets.UTF_8.toString());
+            String searchUrl = baseUrl + "/database/search?release_title=" + encodedAlbum + "&format=" + encodedFormat + "&type=release";
+            HttpGet request = new HttpGet(searchUrl);
             request.setHeader("User-Agent", "TrackThat/1.0");
             request.setHeader("Authorization", "Discogs key=" + consumerKey + ", secret=" + consumerSecret);
     
