@@ -225,17 +225,9 @@ text-align: center;
   padding: 0 32px;
 }
 
-
 .search-bar-row .search-btn:hover {
   background: #b30000;
 }
-
-/* Responsive: on small screens, let it go nearly full width */
-/* @media (max-width: 1000px) {
-  .search-box {
-    width: 90%;
-  }
-} */
 
 @media (max-width: 1100px) {
   .search-btn {
@@ -295,29 +287,6 @@ text-align: center;
   }
 }
 
-
-/* @media (max-width: 1000px) {
-  .search-box {
-    width: 80vw;
-    min-width: 500px !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .search-box {
-    width: 80vw;
-    min-width: 400px !important;
-  }
-} */
-
-/* @media only screen and (max-width: 900px) {
-  .add-button {
-    width: 200px;
-    font-size: 14px;
-    padding: 12px 10px;
-  }
-  
-} */
 
 @media only screen and (max-width: 700px) {
   .search-bar-row .form-control::placeholder {
