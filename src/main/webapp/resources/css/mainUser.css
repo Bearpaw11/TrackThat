@@ -98,10 +98,22 @@ li a {
  margin-right: 20%;  
 }
 
+.mybtn3{
+  width: 45%;
+  margin-left: 5%;  
+ }
+ 
+ .mybtn4{
+  width: 45%;
+  margin-right: 5%;  
+ }
+
  .button{
   color: white;
   text-align: center;
   text-decoration: none;
+  font-size: .75rem;
+  font-weight: 600;
  
 }
 

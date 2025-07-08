@@ -32,7 +32,7 @@ public class DiscogsServiceImpl implements DiscogsService {
                 String fullTitle = node.has("title") ? node.get("title").asText() : null;
                 if (fullTitle != null && fullTitle.contains(" - ")) {
                     String[] parts = fullTitle.split(" - ", 2);
-                    String artistName = parts[0].trim();
+                    String artistName = parts[0].trim().replaceAll("\\s*\\(\\d+\\)$", "");
                     String albumTitle = parts[1].trim();
                     String year = node.has("year") ? node.get("year").asText() : "";
                     // Only add if artist name matches (case-insensitive, partial match allowed)
@@ -55,13 +55,22 @@ public class DiscogsServiceImpl implements DiscogsService {
         resultsList.sort((a, b) -> {
             String artistA = (a.get("artistName") != null) ? ((String) a.get("artistName")).toLowerCase() : "";
             String artistB = (b.get("artistName") != null) ? ((String) b.get("artistName")).toLowerCase() : "";
-            boolean aHasParen = artistA.matches(".*\\(\\d+\\)$");
-            boolean bHasParen = artistB.matches(".*\\(\\d+\\)$");
-            if (aHasParen && !bHasParen)
-                return 1; // a goes after b
-            if (!aHasParen && bHasParen)
-                return -1; // a goes before b
-            return artistA.compareTo(artistB); // fallback: alphabetical
+            String search = artist.toLowerCase();
+        
+            boolean aExact = artistA.equals(search);
+            boolean bExact = artistB.equals(search);
+        
+            if (aExact && !bExact) return -1; // a comes first
+            if (!aExact && bExact) return 1;  // b comes first
+        
+            boolean aContains = artistA.contains(search);
+            boolean bContains = artistB.contains(search);
+        
+            if (aContains && !bContains) return -1;
+            if (!aContains && bContains) return 1;
+        
+            // fallback: alphabetical
+            return artistA.compareTo(artistB);
         });
         return resultsList;
     }

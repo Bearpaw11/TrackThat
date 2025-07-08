@@ -65,21 +65,21 @@
 									<h6 class="card-title cardInfo">
 										<span class="title">Album Title:</span> ${result.albumTitle}
 									</h6>
-									<c:if test="${not empty result.year}">
-										<h6 class="card-title cardInfo">
-											<span class="title">Year:</span> ${result.year}
-										</h6>
-									</c:if>
 									<h6 class="card-title cardInfo">
-										<span class="title">Album Condition:</span> New
+										<span class="title">Album Condition:</span>
+										<select name="albumCondition" class="form-select" style="width: auto; display: inline-block;">
+											<option value="Used">Used</option>
+											<option value="Unopened">Unopened</option>
+											<option value="New" selected>New</option>
+										</select>
 									</h6>
-									<button type="button" class="btn btn-danger mybtn">
+									<button type="button" class="btn btn-danger mybtn3">
 										<a class="button"
 										   href="addCollection?title=${result.albumTitle}&artist=${result.artistName}&imageUrl=${result.thumb != null ? result.thumb : result.cover_image}">
 											Add to Collection
 										</a>
 									</button>
-									<button type="button" class="btn btn-danger mybtn2">
+									<button type="button" class="btn btn-danger mybtn4">
 										<a class="button"
 										   href="addWish?title=${result.albumTitle}&artist=${result.artistName}&imageUrl=${result.thumb != null ? result.thumb : result.cover_image}">
 											Add to Wish List
@@ -89,6 +89,9 @@
 							</div>
 						</c:forEach>	
 					</div>
+				</c:if>
+				<c:if test="${searchResults != null && searchResults.size() == 0}">
+    				<div style="margin-top: 1rem; color: white; font-weight: bold; font-size: 2.5rem; text-align: center;">No Results Found</div>
 				</c:if>
 
 			</div>
