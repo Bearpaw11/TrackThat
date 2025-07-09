@@ -28,19 +28,21 @@ public class DiscogsServiceImpl implements DiscogsService {
         JsonNode response = discogsRepository.searchByArtistAndFormat(artist, "Vinyl");
         if (response.has("results")) {
             for (JsonNode node : response.get("results")) {
+                
                 // 1. Parse title into artist and album
                 String fullTitle = node.has("title") ? node.get("title").asText() : null;
+                System.out.println(fullTitle); 
                 if (fullTitle != null && fullTitle.contains(" - ")) {
                     String[] parts = fullTitle.split(" - ", 2);
                     String artistName = parts[0].trim().replaceAll("\\s*\\(\\d+\\)$", "");
                     String albumTitle = parts[1].trim();
                     String year = node.has("year") ? node.get("year").asText() : "";
                     // Only add if artist name matches (case-insensitive, partial match allowed)
-                    if (artistName.toLowerCase().contains(artist.toLowerCase())) {
+                    if (artistName.equalsIgnoreCase(artist)) {
                         String thumb = node.has("thumb") ? node.get("thumb").asText() : null;
                         if (thumb == null || thumb.isEmpty()) continue; // Skip if no image
 
-                        String uniqueKey = artistName + "|" + albumTitle + "|" + year;
+                        String uniqueKey = artistName.toLowerCase().trim() + "|" + albumTitle.toLowerCase().trim();
                         if (seen.contains(uniqueKey)) continue; // Skip duplicates
                         seen.add(uniqueKey);
 

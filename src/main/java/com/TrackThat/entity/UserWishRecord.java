@@ -31,9 +31,6 @@ public class UserWishRecord {
 	@Column(name="album_title")
 	private String album_title;
 	
-	@Column(name="price")
-	private Integer price;
-	
 	@Column(name="url")
 	private String url;
 	
@@ -80,14 +77,6 @@ public class UserWishRecord {
 
 	public void setAlbum_title(String album_title) {
 		this.album_title = album_title;
-	}
-
-	public Integer getPrice() {
-		return price;
-	}
-
-	public void setPrice(Integer price) {
-		this.price = price;
 	}
 
 	public String getUrl() {

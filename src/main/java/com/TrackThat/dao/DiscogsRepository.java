@@ -29,7 +29,7 @@ public class DiscogsRepository {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             String encodedArtist = URLEncoder.encode(artist, StandardCharsets.UTF_8.toString());
             String encodedFormat = URLEncoder.encode(format, StandardCharsets.UTF_8.toString());
-            String searchUrl = baseUrl + "/database/search?artist=" + encodedArtist + "&format=" + encodedFormat + "&type=release";
+            String searchUrl = baseUrl + "/database/search?artist=" + encodedArtist + "&format=" + encodedFormat + "&type=release" + "&type=release&per_page=200";
             HttpGet request = new HttpGet(searchUrl);
             request.setHeader("User-Agent", "TrackThat/1.0");
             request.setHeader("Authorization", "Discogs key=" + consumerKey + ", secret=" + consumerSecret);

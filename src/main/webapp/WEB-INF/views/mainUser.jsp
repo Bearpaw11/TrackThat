@@ -65,26 +65,18 @@
 									<h6 class="card-title cardInfo">
 										<span class="title">Album Title:</span> ${result.albumTitle}
 									</h6>
-									<h6 class="card-title cardInfo">
-										<span class="title">Album Condition:</span>
-										<select name="albumCondition" class="form-select" style="width: auto; display: inline-block;">
-											<option value="Used">Used</option>
-											<option value="Unopened">Unopened</option>
-											<option value="New" selected>New</option>
-										</select>
-									</h6>
-									<button type="button" class="btn btn-danger mybtn3">
-										<a class="button"
-										   href="addCollection?title=${result.albumTitle}&artist=${result.artistName}&imageUrl=${result.thumb != null ? result.thumb : result.cover_image}">
-											Add to Collection
-										</a>
-									</button>
-									<button type="button" class="btn btn-danger mybtn4">
-										<a class="button"
-										   href="addWish?title=${result.albumTitle}&artist=${result.artistName}&imageUrl=${result.thumb != null ? result.thumb : result.cover_image}">
-											Add to Wish List
-										</a>
-									</button>
+									<form action="saveUserRecord" method="post" style="display: inline;">
+										<input type="hidden" name="artist" value="${result.artistName}" />
+										<input type="hidden" name="album_title" value="${result.albumTitle}" />
+										<input type="hidden" name="url" value="${result.thumb != null ? result.thumb : result.cover_image}" />
+										<button type="submit" class="btn btn-danger mybtn3">Add to Collection</button>
+									</form>
+									<form action="saveUserWishRecord" method="post" style="display: inline;">
+										<input type="hidden" name="artist" value="${result.artistName}" />
+										<input type="hidden" name="album_title" value="${result.albumTitle}" />
+										<input type="hidden" name="url" value="${result.thumb != null ? result.thumb : result.cover_image}" />
+										<button type="submit" class="btn btn-danger mybtn4">Add to Wish List</button>
+									</form>
 								</div>
 							</div>
 						</c:forEach>	
@@ -122,8 +114,6 @@
 										${tempUserRecord.artist} </h6>
 									<h6 class="card-title cardInfo"><span class="title">Album Title:</span>
 										${tempUserRecord.album_title} </h6>
-									<h6 class="card-title cardInfo"><span class="title">Album Condition:</span>
-										${tempUserRecord.conditions} </h6>
 									<button type="button" class="btn btn-danger mybtn"><a class="button"
 											href="${updateLink}">Update</a> </button>
 									<button type="button" class="btn btn-danger mybtn2"><a class="button"
@@ -152,8 +142,6 @@
 										${tempUserWishRecord.artist} </h6>
 									<h6 class="card-title cardInfo"><span class="title">Album Title:</span>
 										${tempUserWishRecord.album_title} </h6>
-									<h6 class="card-title cardInfo"><span class="title">Expected Price:</span>
-										$${tempUserWishRecord.price} </h6>
 									<button type="button" class="btn btn-danger mybtn"><a class="button"
 											href="${updateWishLink}">Update</a> </button>
 									<button type="button" class="btn btn-danger mybtn2"><a class="button"

@@ -54,6 +54,7 @@ li a {
   background-color:rgba(34, 34, 34, 0.6);
   width: 100vw;
   height: 100vh;
+  padding-bottom: 75px;
 }
 
 .buttonDiv {
@@ -99,13 +100,13 @@ li a {
 }
 
 .mybtn3{
-  width: 45%;
-  margin-left: 5%;  
+  width: 48%;
+  margin-left: 2%;  
  }
  
  .mybtn4{
-  width: 45%;
-  margin-right: 5%;  
+  width: 48%;
+  margin-right: 2%;  
  }
 
  .button{
@@ -145,13 +146,10 @@ font-size: 20px;
     width: 300px;
   }
 
-
-
 .CardDiv{
-	
 	display: flex;
 	flex-wrap: wrap;
-  	justify-content: center;
+  justify-content: center;
   
 }
 
@@ -172,6 +170,13 @@ text-align: center;
 }
 
 .cardStyle img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.square-img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
@@ -240,6 +245,8 @@ text-align: center;
 .search-bar-row .search-btn:hover {
   background: #b30000;
 }
+
+
 
 @media (max-width: 1100px) {
   .search-btn {
