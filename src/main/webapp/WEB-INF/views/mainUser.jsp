@@ -48,7 +48,7 @@
 						</div>
 					</form>
 				</form>
-
+            </div>
 				<c:if test="${not empty searchError}">
 					<div class="alert alert-danger">${searchError}</div>
 				</c:if>
@@ -86,7 +86,7 @@
     				<div style="margin-top: 1rem; color: white; font-weight: bold; font-size: 2.5rem; text-align: center;">No Results Found</div>
 				</c:if>
 
-			</div>
+			
 			<div class="buttonDiv">
 				<input type="button" value="Add record to collection"
 					onclick="window.location.href='addCollection'; return false;" class="add-button" />
@@ -94,7 +94,7 @@
 					onclick="window.location.href='addWish'; return false;" class="add-button" />
 			</div>
 
-			<h1 class="current">Current Collection</h1>
+			<h1 class="currentCollection">Current Collection</h1>
 
 			<div class="CardDiv">
 				<%-- This Section creates a card for ever record in the user record collection--%>
