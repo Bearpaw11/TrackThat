@@ -125,109 +125,159 @@ public class SiteController {
 	@GetMapping("/mainUser")
 	public String mainUser(Model theModel, HttpSession session) {
 
-		//gets the user from the http session attribute and gets the User Id		
-		User user =  (User) (session.getAttribute("loggedInUser"));
-		int UserId =(user.getId());
+    // Check if user is logged in
+    User user = (User) (session.getAttribute("loggedInUser"));
+    if (user == null) {
+        return "redirect:/signin";
+    }
 
-		//uses the UserId to get the userRecords using the userService
-		List<UserRecord> theUserRecords = userService.getUserRecords(UserId);
-		session.setAttribute("userRecords", theUserRecords);
+    //gets the user from the http session attribute and gets the User Id		
+    int UserId = (user.getId());
 
-		//uses the UserId to get the userWishRecords using the userService
-		List<UserWishRecord> theUserWishRecords = userService.getUserWishRecords(UserId);
-		theModel.addAttribute("userWishRecords", theUserWishRecords);
+    //uses the UserId to get the userRecords using the userService
+    List<UserRecord> theUserRecords = userService.getUserRecords(UserId);
+    session.setAttribute("userRecords", theUserRecords);
 
-		//route to the mainUser page
-		return "mainUser";
-	}
+    //uses the UserId to get the userWishRecords using the userService
+    List<UserWishRecord> theUserWishRecords = userService.getUserWishRecords(UserId);
+    theModel.addAttribute("userWishRecords", theUserWishRecords);
+
+    //route to the mainUser page
+    return "mainUser";
+}
 
 
 	//creates model attribute to bind the form data. Returns the add collection page
 	@GetMapping("/addCollection")
-		public String addCollection(Model theModel, HttpSession session) {
-		UserRecord theUserRecord = new UserRecord();
-		theModel.addAttribute("userRecord", theUserRecord);
-	
-		return "addCollection";
+	public String addCollection(Model theModel, HttpSession session) {
+    // Check if user is logged in
+    User user = (User) (session.getAttribute("loggedInUser"));
+    if (user == null) {
+        return "redirect:/signin";
+    }
+    
+    UserRecord theUserRecord = new UserRecord();
+    theModel.addAttribute("userRecord", theUserRecord);
+
+    return "addCollection";
 }
 
 	//saves the user records. Redirects to mainUser
 	@PostMapping("/saveUserRecord")
-		public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord, @ModelAttribute("loggedInUser") User user, HttpSession session) {
-	
-		//gets the user Id from http session
-		User user1 =  (User) (session.getAttribute("loggedInUser"));
-		int UserId =(user1.getId());
-	
-		//save the record using the userService
-		userService.saveUserRecord(theUserRecord, UserId);
-	
-		//Redirects to the mainUser page
-		return "redirect:/mainUser";
-	}
+	public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord, @ModelAttribute("loggedInUser") User user, HttpSession session) {
+    // Check if user is logged in
+    User loggedInUser = (User) (session.getAttribute("loggedInUser"));
+    if (loggedInUser == null) {
+        return "redirect:/signin";
+    }
+
+    //gets the user Id from http session
+    int UserId = (loggedInUser.getId());
+
+    //save the record using the userService
+    userService.saveUserRecord(theUserRecord, UserId);
+
+    //Redirects to the mainUser page
+    return "redirect:/mainUser";
+}
 
 	//get record info to populate form for update
 	@GetMapping("/showFormForUpdate")
-	public String showFormForUpdate(@RequestParam("recordId") int theId, Model theModel) {
-		//get the record from our service
-		UserRecord theUserRecord = userService.getUserRecord(theId);
-	
-		// set record as a model attribute to pre-populate the form
-		theModel.addAttribute("userRecord", theUserRecord);
-	
-		//Route to add form page
-		return "addCollection";
-	}
+	public String showFormForUpdate(@RequestParam("recordId") int theId, Model theModel, HttpSession session) {
+    // Check if user is logged in
+    User user = (User) (session.getAttribute("loggedInUser"));
+    if (user == null) {
+        return "redirect:/signin";
+    }
+    
+    //get the record from our service
+    UserRecord theUserRecord = userService.getUserRecord(theId);
+
+    // set record as a model attribute to pre-populate the form
+    theModel.addAttribute("userRecord", theUserRecord);
+
+    //Route to add form page
+    return "addCollection";
+}
 
 	@GetMapping("/deleteRecord")
-	public String deleteRecord(@RequestParam("userRecordId") int theId) {
-		//use the service to delete the record
-		userService.deleteUserRecord(theId);
-		//reload mainUser page
-		return "redirect:/mainUser";
-	}
+	public String deleteRecord(@RequestParam("userRecordId") int theId, HttpSession session) {
+    // Check if user is logged in
+    User user = (User) (session.getAttribute("loggedInUser"));
+    if (user == null) {
+        return "redirect:/signin";
+    }
+    
+    //use the service to delete the record
+    userService.deleteUserRecord(theId);
+    //reload mainUser page
+    return "redirect:/mainUser";
+}
 
 	//creates model attribute to bind the form data. Returns the addWish
 	@GetMapping("/addWish")
 	public String addWish(Model theModel, HttpSession session) {
-		UserWishRecord theUserWishRecord = new UserWishRecord();
-		theModel.addAttribute("userWishRecord", theUserWishRecord);
-		return "addWish";
-	}
+    // Check if user is logged in
+    User user = (User) (session.getAttribute("loggedInUser"));
+    if (user == null) {
+        return "redirect:/signin";
+    }
+    
+    UserWishRecord theUserWishRecord = new UserWishRecord();
+    theModel.addAttribute("userWishRecord", theUserWishRecord);
+    return "addWish";
+}
 
 	@PostMapping("/saveUserWishRecord")
 	public String saveUserWishRecord(@ModelAttribute("userWishRecord") UserWishRecord theUserWishRecord, @ModelAttribute("loggedInUser") User user, HttpSession session) {
-		//gets the user Id from http session
-		User user1 =  (User) (session.getAttribute("loggedInUser"));
-		int UserId =(user1.getId());
-		
-		//save the record using service
-		userService.saveUserWishRecord(theUserWishRecord, UserId);
-		
-		//Redirects to the mainUser page
-		return "redirect:/mainUser";
-	}
+    // Check if user is logged in
+    User loggedInUser = (User) (session.getAttribute("loggedInUser"));
+    if (loggedInUser == null) {
+        return "redirect:/signin";
+    }
+    
+    //gets the user Id from http session
+    int UserId = (loggedInUser.getId());
+    
+    //save the record using service
+    userService.saveUserWishRecord(theUserWishRecord, UserId);
+    
+    //Redirects to the mainUser page
+    return "redirect:/mainUser";
+}
 
 	//get record info to populate form for update
 	@GetMapping("/showFormForWishUpdate")
-	public String showFormForWishUpdate(@RequestParam("recordId") int theId, Model theModel) {
-		//get the record from our service
-		UserWishRecord theUserWishRecord = userService.getUserWishRecord(theId);
-		
-		// set record as a model attribute to pre-populate the form
-		theModel.addAttribute("userWishRecord", theUserWishRecord);
-		
-		//Route to addWish page
-		return "addWish";
-	}
+	public String showFormForWishUpdate(@RequestParam("recordId") int theId, Model theModel, HttpSession session) {
+    // Check if user is logged in
+    User user = (User) (session.getAttribute("loggedInUser"));
+    if (user == null) {
+        return "redirect:/signin";
+    }
+    
+    //get the record from our service
+    UserWishRecord theUserWishRecord = userService.getUserWishRecord(theId);
+    
+    // set record as a model attribute to pre-populate the form
+    theModel.addAttribute("userWishRecord", theUserWishRecord);
+    
+    //Route to addWish page
+    return "addWish";
+}
 
 	@GetMapping("/deleteWishRecord")
-	public String deleteWishRecord(@RequestParam("userWishRecordId") int theId) {
-		//use the service to delete the record
-		userService.deleteUserWishRecord(theId);
-		
-		//Redirects to the mainUser page
-		return "redirect:/mainUser";
-	}
+	public String deleteWishRecord(@RequestParam("userWishRecordId") int theId, HttpSession session) {
+    // Check if user is logged in
+    User user = (User) (session.getAttribute("loggedInUser"));
+    if (user == null) {
+        return "redirect:/signin";
+    }
+    
+    //use the service to delete the record
+    userService.deleteUserWishRecord(theId);
+    
+    //Redirects to the mainUser page
+    return "redirect:/mainUser";
+}
 
 }
