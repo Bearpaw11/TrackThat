@@ -31,9 +31,6 @@ public class UserRecord {
 	@Column(name="album_title")
 	private String album_title;
 	
-	@Column(name="conditions")
-	private String conditions;
-	
 	@Column(name="url")
 	private String url;
 	
@@ -80,14 +77,6 @@ public class UserRecord {
 
 	public void setAlbum_title(String album_title) {
 		this.album_title = album_title;
-	}
-
-	public String getConditions() {
-		return conditions;
-	}
-
-	public void setConditions(String conditions) {
-		this.conditions = conditions;
 	}
 
 	public String getUrl() {

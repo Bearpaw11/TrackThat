@@ -53,11 +53,6 @@
           		<label for="albumName" class="form-label">Album Name</label>
           		<form:input path="album_title" class="form-control" id="albumName"/>
         	</div>
-<!--         	expect cost section of form -->
-          	<div class="mb-3">
-            	<label for="price" class="form-label">Expected Cost</label>
-            	<form:input path="price" class="form-control" id="price"/>
-          	</div>
           	<!-- album url section of form -->
         	<div class="mb-3">
           		<label for="url" class="form-label">Album cover URL</label>

@@ -54,13 +54,6 @@
 					<form:input path="album_title" class="form-control" id="albumName" />
 				</div>
 				<div class="mb-3">
-					<form:select path="conditions" name="Condition" id="Conditions">
-						<option value="Used">Used</option>
-						<option value="Unopened">Unopened</option>
-						<option value="New">New</option>
-					</form:select>
-				</div>
-				<div class="mb-3">
 					<label for="url" class="form-label">Album cover URL</label>
 					<form:input path="url" class="form-control" id="albumUrl" />
 				</div>
