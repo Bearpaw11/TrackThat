@@ -136,7 +136,7 @@ public class SiteController {
 
     //uses the UserId to get the userRecords using the userService
     List<UserRecord> theUserRecords = userService.getUserRecords(UserId);
-    session.setAttribute("userRecords", theUserRecords);
+    theModel.addAttribute("userRecords", theUserRecords);
 
     //uses the UserId to get the userWishRecords using the userService
     List<UserWishRecord> theUserWishRecords = userService.getUserWishRecords(UserId);
@@ -242,6 +242,9 @@ public class SiteController {
     //save the record using service
     userService.saveUserWishRecord(theUserWishRecord, UserId);
     
+    System.out.println("WishList Add: artist=" + theUserWishRecord.getArtist() +
+    ", album_title=" + theUserWishRecord.getAlbum_title() +
+    ", url=" + theUserWishRecord.getUrl());
     //Redirects to the mainUser page
     return "redirect:/mainUser";
 }

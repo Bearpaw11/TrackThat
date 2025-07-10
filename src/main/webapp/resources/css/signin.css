@@ -4,14 +4,16 @@
 }
 
 html {
-  background-color: rgba(34, 34, 34, 0.6);
+  background-color: #8D99AE;
   width: 100vw;
   height: 100vh;
 }
 
 .navClass {
-  background-color: rgba(34, 34, 34, 0.3);
-  border-bottom: 2px solid red;
+  background-color: #8D99AE;
+  opacity: .6;
+  border-bottom: 2px solid #6D2E46;
+  color: white;
 }
 
 li a {
@@ -20,13 +22,24 @@ li a {
 }
 
 .pageBackground {
-  background-color: rgba(34, 34, 34, 0.6);
+  background-color: #8D99AE;
   width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: clamp(1vh, 2vh, 4vh) 0;
+}
+
+.btn {
+  background-color: #6D2E46;
+  color: #fff;
+}
+
+#submit:hover,
+.btn:hover {
+  background-color: #6D2E46;
+  color: #fff;
 }
 
 .formCard {
@@ -80,4 +93,6 @@ li a {
   .mb-3 {
     margin-bottom: 0.5rem !important;
   }
+
+
 }

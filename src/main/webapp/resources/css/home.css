@@ -6,7 +6,7 @@ html {
 
 header{
   min-height: 100vh;
-  background-color:rgba(34, 34, 34, 0.6);
+  background-color: #8D99AE;
 }
 
 h1 {
@@ -27,12 +27,20 @@ p {
 .btn:visited {
   font-size: 20px;
   font-weight: 600;
-  background-color:red;
+  background-color: #6D2E46;
   color: #fff;
   text-decoration: none;
   display: inline-block;
   padding: 16px 32px;
   border-radius: 9px;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #6D2E46 !important; /* Keep the original background */
+  color: #fff !important;               /* Keep the text white */
+  border: 1.5px solid #fff !important;  /* Add a white border */
+  box-shadow: none !important;          /* Remove any shadow */
+  text-decoration: none !important;     /* No underline */
 }
 
 .header-text{
@@ -57,8 +65,9 @@ p {
 
 
 .navClass {
-  background-color:rgba(34, 34, 34, 0.3);
-  border-bottom: 2px solid red;
+  background-color: #8D99AE;
+  opacity: .6;
+  border-bottom: 2px solid #6D2E46;
   color: white;
 }
 

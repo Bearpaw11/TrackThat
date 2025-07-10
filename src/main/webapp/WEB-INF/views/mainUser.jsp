@@ -37,16 +37,14 @@
 
 			<div class="search-box">
 				<form action="search" method="get" class="mb-4">
-					<form action="search" method="get" class="mb-4">
-						<div class="search-bar-row">
-							<input type="text" name="query" placeholder="Search for artist or album..."
-								class="form-control" value="${param.query}" />
-							<button type="submit" name="searchType" value="album" class="search-btn">Search
-								Albums</button>
-							<button type="submit" name="searchType" value="artist" class="search-btn">Search
-								Artists</button>
-						</div>
-					</form>
+					<div class="search-bar-row">
+						<input type="text" name="query" placeholder="Search for artist or album..."
+							class="form-control" value="${param.query}" />
+						<button type="submit" name="searchType" value="album" class="search-btn">Search
+							Albums</button>
+						<button type="submit" name="searchType" value="artist" class="search-btn">Search
+							Artists</button>
+					</div>
 				</form>
             </div>
 				<c:if test="${not empty searchError}">
@@ -62,20 +60,20 @@
 									<h6 class="card-title cardInfo">
 										<span class="title">Artist:</span> ${result.artistName}
 									</h6>
-									<h6 class="card-title cardInfo">
+									<h6 class="card-album">
 										<span class="title">Album Title:</span> ${result.albumTitle}
 									</h6>
 									<form action="saveUserRecord" method="post" style="display: inline;">
 										<input type="hidden" name="artist" value="${result.artistName}" />
 										<input type="hidden" name="album_title" value="${result.albumTitle}" />
 										<input type="hidden" name="url" value="${result.thumb != null ? result.thumb : result.cover_image}" />
-										<button type="submit" class="btn btn-danger mybtn3">Add to Collection</button>
+										<button type="submit" class="mybtn3">Add to Collection</button>
 									</form>
-									<form action="saveUserWishRecord" method="post" style="display: inline;">
+									<form action="saveUserWishRecord" method="post" style="display: inline;" autocomplete="off">
 										<input type="hidden" name="artist" value="${result.artistName}" />
 										<input type="hidden" name="album_title" value="${result.albumTitle}" />
 										<input type="hidden" name="url" value="${result.thumb != null ? result.thumb : result.cover_image}" />
-										<button type="submit" class="btn btn-danger mybtn4">Add to Wish List</button>
+										<button type="submit" class="mybtn4" onclick="this.disabled=true;this.form.submit();">Add to Wish List</button>
 									</form>
 								</div>
 							</div>
@@ -83,7 +81,7 @@
 					</div>
 				</c:if>
 				<c:if test="${searchResults != null && searchResults.size() == 0}">
-    				<div style="margin-top: 1rem; color: white; font-weight: bold; font-size: 2.5rem; text-align: center;">No Results Found</div>
+    				<div style="margin-bottom: 2rem; margin-top: -2rem; color: white; font-weight: bold; font-size: 2.5rem; text-align: center;">No Results Found</div>
 				</c:if>
 
 			
@@ -112,11 +110,11 @@
 								<div class="card-body">
 									<h6 class="card-title cardInfo"><span class="title">Artist:</span>
 										${tempUserRecord.artist} </h6>
-									<h6 class="card-title cardInfo"><span class="title">Album Title:</span>
+									<h6 class="card-album"><span class="title">Album Title:</span>
 										${tempUserRecord.album_title} </h6>
-									<button type="button" class="btn btn-danger mybtn"><a class="button"
+									<button type="button" class="mybtn"><a class="button"
 											href="${updateLink}">Update</a> </button>
-									<button type="button" class="btn btn-danger mybtn2"><a class="button"
+									<button type="button" class="mybtn2"><a class="button"
 											href="${deleteLink}">Delete</a></button>
 								</div>
 							</div>
@@ -140,11 +138,11 @@
 								<div class="card-body">
 									<h6 class="card-title cardInfo"><span class="title">Artist:</span>
 										${tempUserWishRecord.artist} </h6>
-									<h6 class="card-title cardInfo"><span class="title">Album Title:</span>
+									<h6 class="card-album"><span class="title">Album Title:</span>
 										${tempUserWishRecord.album_title} </h6>
-									<button type="button" class="btn btn-danger mybtn"><a class="button"
+									<button type="button" class="mybtn"><a class="button"
 											href="${updateWishLink}">Update</a> </button>
-									<button type="button" class="btn btn-danger mybtn2"><a class="button"
+									<button type="button" class="mybtn2"><a class="button"
 											href="${deleteWishLink}">Delete</a></button>
 								</div>
 							</div>

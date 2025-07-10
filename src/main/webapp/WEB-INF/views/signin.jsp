@@ -63,7 +63,7 @@
           <label for="password" class="form-label">Password</label>
           <form:input path="password" type="password" class="form-control" id="password"/>
         </div>
-        <input type="submit" value="Sign In"  class="btn btn-danger btn" />
+        <input type="submit" value="Sign In" class="btn" />
       </form:form>
     </div>
   </div>

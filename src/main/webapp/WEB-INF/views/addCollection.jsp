@@ -57,10 +57,10 @@
 					<label for="url" class="form-label">Album cover URL</label>
 					<form:input path="url" class="form-control" id="albumUrl" />
 				</div>
-				<input type="submit" value="Save" class="btn btn-danger btn" id="submit" />
+				<input type="submit" value="Save" class="mybtn" id="submit" />
 				<input type="button" value="Cancel"
 				   onclick="window.location.href='mainUser'; return false;"
-				   class="btn btn-danger btn"
+				   class= "mybtn"
 				/>
 			</form:form>
 		</div>

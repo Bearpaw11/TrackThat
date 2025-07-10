@@ -4,14 +4,15 @@
 }
 
 html {
-  background-color: rgba(34, 34, 34, 0.6);
+  background-color: #8D99AE;
   width: 100vw;
   height: 100vh;
 }
 
 .navClass {
-  background-color: rgba(34, 34, 34, 0.3);
-  border-bottom: 2px solid red;
+  background-color: #8D99AE;
+  opacity: .6;
+  border-bottom: 2px solid #6D2E46;
   color: white;
 }
 
@@ -35,7 +36,7 @@ nav li a {
 }
 
 .pageBackground {
-  background-color: rgba(34, 34, 34, 0.6);
+  background-color: #8D99AE;
   width: 100vw;
   min-height: 100vh;
   display: flex;
@@ -72,6 +73,23 @@ h1 {
   margin-left: clamp(-30px, -3vw, -20px);
 }
 
-.btn {
+.mybtn {
+  background-color: #6D2E46;
+  color: #fff;
+  border-radius: 9px;
+  height: 45px;
   width: clamp(100px, 15vw, 150px);
+  border: 1.5px solid transparent; /* Add a border to prevent layout shift */
+  box-shadow: none;                /* Remove any shadow */
+  outline: none;
+}
+
+.mybtn:hover, .mybtn:focus {
+  background-color: #6D2E46;       /* Keep the same background */
+  color: #fff;
+  border: 1.5px solid #fff;        /* White border on hover/focus */
+  box-shadow: none;                /* No shadow on hover/focus */
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
 }

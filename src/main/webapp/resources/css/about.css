@@ -3,8 +3,10 @@
 }
 
 .navClass {
-  background-color:rgba(34, 34, 34, 0.3);
-  border-bottom: 2px solid red;
+  background-color: #8D99AE;
+  opacity: .6;
+  border-bottom: 2px solid #6D2E46;
+  color: white;
   
 }
 li a{
@@ -15,8 +17,7 @@ li a{
 header {
   height: 100%;
   width: 100%;
- background-color:rgba(34, 34, 34, 0.6);
- 
+  background-color: #8D99AE;;
 }
 
 .aboutTitle{
@@ -39,7 +40,7 @@ header {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 10px 10px 5px lightblue;
+  box-shadow: 10px 10px 5px #6D2E46;
   max-width: 90%;
   height: auto;
 }
@@ -74,7 +75,7 @@ header ul {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid red;
+  border: 2px solid #6D2E46;
   max-width: 90%;
   height: auto;
   margin-top: 20px;

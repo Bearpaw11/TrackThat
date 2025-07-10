@@ -56,25 +56,25 @@
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <form:input path="email" id="email" type="text" class="form-control" />
-            <div id="emailMsg" style="color:#dc3545; font-size:1rem; font-weight:900;"></div>
+            <div id="emailMsg" style="color:#6D2E46; font-size:1rem; font-weight:900;"></div>
           </div>
           <div class="mb-3">
             <label for="userName" class="form-label">User Name</label>
             <form:input path="userName" type="text" class="form-control" id="UserName" />
-            <div id="userNameMsg" style="color:#dc3545; font-size:1rem; font-weight:900;"></div>
+            <div id="userNameMsg" style="color:#6D2E46; font-size:1rem; font-weight:900;"></div>
           </div>
           <div class="mb-3">
             <label for="pasword" class="form-label">Password</label>
             <h6 class="PWTest">Must be at least 8 characters long</h6>
             <input type="password" class="form-control" id="password" placeholder="" />
-            <div id="passwordMsg" style="color:#dc3545; font-size:1rem; font-weight:900;"></div>
+            <div id="passwordMsg" style="color:#6D2E46; font-size:1rem; font-weight:900;"></div>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Confirm Password </label>
             <form:input path="password" type="password" class="form-control" id="confirm" />
-            <div id="pwMatchMsg" style="color:#dc3545; font-size:1rem; font-weight:900;"></div>
+            <div id="pwMatchMsg" style="color:#6D2E46; font-size:1rem; font-weight:900;"></div>
           </div>
-          <input type="submit" value="Signup" class="btn btn-danger" id="submit" disabled />
+          <input type="submit" value="Signup" class="btn" id="submit" disabled />
         </form:form>
       </div>
     </div>
