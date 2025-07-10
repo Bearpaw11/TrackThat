@@ -31,7 +31,7 @@ public class DiscogsServiceImpl implements DiscogsService {
                 
                 // 1. Parse title into artist and album
                 String fullTitle = node.has("title") ? node.get("title").asText() : null;
-                System.out.println(fullTitle); 
+                
                 if (fullTitle != null && fullTitle.contains(" - ")) {
                     String[] parts = fullTitle.split(" - ", 2);
                     String artistName = parts[0].trim().replaceAll("\\s*\\(\\d+\\)$", "");
