@@ -52,21 +52,28 @@
     <h3 class="howHeader fntSize">Here's how it works</h3>
     	<!-- List of how the site works and images -->
     	<ul>
-     		 <li class="steps">1. Use our easy sign up to create a user account</li>
-       		 	<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/signup.png" alt="Signup Page" >
-      		<li class="steps">2. Log in with your new account</li>
-        		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/signin.png" alt="Signup Page" >
-      		<li class="steps">3. You are redirected to your main user page</li>
-        		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home1.png" alt="Signup Page" >
-      		<li class="steps">4. Click "Add record to collection" and get redirected to "Add Record to collection page"
-      			<br> Enter information about a record in your collection and click "Add to Collection"</li>
-      			<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/addToCollection.png" alt="Add to collection">
-      		<li class="steps">5. You are redirected to your home page and you will see your new record added to your collection
+     		 <li class="steps"> Use our easy sign up to create a user account</li>
+       		 	<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/Signup.jpeg" alt="Signup Page" >
+      		<li class="steps">Sign in with your new account</li>
+        		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/Signin.jpeg" alt="Signup Page" >
+      		<li class="steps">You are redirected to your main user page</li>
+        		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/UserHome.png" alt="Signup Page" >
+          <li class="steps">Use the search bar to search for an album or an artist</li>
+        		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/Search.png" alt="Signup Page" > 
+          <li class="steps">Once You find the record you want to add, use the "Add to Collection" or "Add to Wish List" buttons</li>
+            <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/SearchAdd.png" alt="Signup Page" >
+          <li class="steps">You will then see the record added to "Current Collection" or "My Wish List"</li>
+            <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/AddToCollection.jpeg" alt="Signup Page" >
+      		<li class="steps">If your search doesn't have the record you want, no problem! Use the "Add record to collection" or "Add record to wish list" button to add manually.</li>
+            <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/ManualAdd.png" alt="Signup Page" >
+      		<li class="steps">Enter the Artist, Album Title and URL of the Album Cover and click Save</li>
+      			<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/ManualAdd2.png" alt="Add to collection">
+      		<li class="steps">You are redirected to your home page and you will see your new record added to your collection.
       			<br> 
-      			Your records will automatically be sorted by artist</li> 
-      			<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home.png" alt="Home Page">
-      		<li class="steps">6. Use the "Add Record to Wish List" button to create a wish list of records you would like to acquire</li>  
-     	   <li class="steps">7. Use the Update and Delete buttons as needed</li>
+      			Your records will automatically be sorted alphabetically by artist</li> 
+      			<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/ManualAdd3.png" alt="Home Page">
+      		<li class="steps">Use the "Add record to wish list" button to create a wish list of records you would like to acquire</li>  
+     	   <li class="steps">Use the Update and Delete buttons as needed</li>
       		<br>
       		<br>
       		<br>

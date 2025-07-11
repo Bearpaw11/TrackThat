@@ -50,7 +50,7 @@
         	</div>
         	<!-- album section of form  -->
         	<div class="mb-3">
-          		<label for="albumName" class="form-label">Album Name</label>
+          		<label for="albumName" class="form-label">Album Title</label>
           		<form:input path="album_title" class="form-control" id="albumName"/>
         	</div>
           	<!-- album url section of form -->
