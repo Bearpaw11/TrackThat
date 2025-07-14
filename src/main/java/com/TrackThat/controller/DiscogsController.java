@@ -10,6 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+import com.TrackThat.service.UserService;
+import com.TrackThat.entity.User;
+import com.TrackThat.entity.UserRecord;
+import com.TrackThat.entity.UserWishRecord;
 
 import com.TrackThat.service.DiscogsServiceImpl;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -21,10 +26,14 @@ public class DiscogsController {
     @Autowired
     private DiscogsServiceImpl discogsService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/search")
     public String search(@RequestParam("query") String query,
                          @RequestParam("searchType") String searchType,
-                         Model model) {
+                         Model model,
+                         HttpSession session) {
         try {
             List<Map<String, Object>> resultsList;
             if ("artist".equalsIgnoreCase(searchType)) {
@@ -35,6 +44,16 @@ public class DiscogsController {
             model.addAttribute("searchResults", resultsList);
             model.addAttribute("searchType", searchType);
             model.addAttribute("searchQuery", query);
+
+            // Add user's collection and wish list to the model
+            User user = (User) session.getAttribute("loggedInUser");
+            if (user != null) {
+                int userId = user.getId();
+                List<UserRecord> userRecords = userService.getUserRecords(userId);
+                List<UserWishRecord> userWishRecords = userService.getUserWishRecords(userId);
+                model.addAttribute("userRecords", userRecords);
+                model.addAttribute("userWishRecords", userWishRecords);
+            }
         } catch (Exception e) {
             model.addAttribute("searchError", "Error searching Discogs: " + e.getMessage());
         }
