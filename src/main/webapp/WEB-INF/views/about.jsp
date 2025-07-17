@@ -53,9 +53,9 @@
     	<!-- List of how the site works and images -->
     	<ul>
      		 <li class="steps"> Use our easy sign up to create a user account</li>
-       		 	<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/Signup.jpeg" alt="Signup Page" >
+       		 	<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/Signup.png" alt="Signup Page" >
       		<li class="steps">Sign in with your new account</li>
-        		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/Signin.jpeg" alt="Signup Page" >
+        		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/Signin.png" alt="Signup Page" >
       		<li class="steps">You are redirected to your main user page</li>
         		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/UserHome.png" alt="Signup Page" >
           <li class="steps">Use the search bar to search for an album or an artist</li>
