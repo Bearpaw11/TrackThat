@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add to collection</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/TrackThat.png" type="image/x-icon"> 
-  <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/TrackThat.png" type="image/x-icon"> 
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/TrackThat2.png" type="image/x-icon"> 
+  <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/TrackThat2.png" type="image/x-icon"> 
   <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link type="text/css"
 		  rel="stylesheet"
@@ -36,7 +36,7 @@
     </div>
   </nav>
   <div class="pageBackground">
-    <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
+    <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat2.png" alt="logg" width="300" height="300">
     <div class="formCard">
       <h1>Add Record to Wish List</h1>
        <!-- form to a record to wish list -->

@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/TrackThat.png" type="image/x-icon">
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/TrackThat.png"
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/TrackThat2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/TrackThat2.png"
       type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -46,7 +46,7 @@
     <div class="pageBackground">
       <!-- error message if user exists -->
       <div class="error">${UserError}</div>
-      <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg"
+      <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/TrackThat2.png" alt="logg"
         width="300" height="300">
       <div class="formCard">
         <h1 class="signUpHeader">Signup</h1>

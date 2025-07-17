@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign In</title>
-  <link rel="icon" href="${pageContext.request.contextPath}/resources/images/TrackThat.png" type="image/x-icon"> 
-  <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/TrackThat.png" type="image/x-icon"> 
+  <link rel="icon" href="${pageContext.request.contextPath}/resources/images/TrackThat2.png" type="image/x-icon"> 
+  <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/TrackThat2.png" type="image/x-icon"> 
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <link type="text/css"
@@ -50,7 +50,7 @@
     </c:if>
     <!--  error message if signin fails -->
     <div class="error">${loginError}</div>
-    <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
+    <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat2.png" alt="logg" width="300" height="300">
     <div class="formCard">
       <h1 class="signInHeader">Sign In</h1>
       	<!-- form for user signin -->
