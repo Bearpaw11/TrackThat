@@ -17,8 +17,6 @@ import com.TrackThat.entity.UserRecord;
 import com.TrackThat.entity.UserWishRecord;
 
 import com.TrackThat.service.DiscogsServiceImpl;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class DiscogsController {

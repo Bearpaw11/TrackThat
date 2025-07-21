@@ -14,7 +14,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import com.TrackThat.dao.UserRepository;
 import com.TrackThat.entity.User;
 import com.TrackThat.entity.UserRecord;
 import com.TrackThat.entity.UserWishRecord;
