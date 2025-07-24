@@ -28,7 +28,7 @@ public class DiscogsController {
     private UserService userService;
 
     @GetMapping("/search")
-    public String search(@RequestParam("query") String query,
+    public String search(@RequestParam ("query") String query,
                          @RequestParam("searchType") String searchType,
                          Model model,
                          HttpSession session) {
@@ -55,6 +55,7 @@ public class DiscogsController {
         } catch (Exception e) {
             model.addAttribute("searchError", "Error searching Discogs: " + e.getMessage());
         }
+        
         return "mainUser";
     }
 
