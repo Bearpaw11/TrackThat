@@ -3,6 +3,7 @@ package com.TrackThat.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,11 +47,13 @@ public class DiscogsController {
             // Add user's collection and wish list to the model
             User user = (User) session.getAttribute("loggedInUser");
             if (user != null) {
+                
                 int userId = user.getId();
                 List<UserRecord> userRecords = userService.getUserRecords(userId);
                 List<UserWishRecord> userWishRecords = userService.getUserWishRecords(userId);
                 model.addAttribute("userRecords", userRecords);
                 model.addAttribute("userWishRecords", userWishRecords);
+
             }
         } catch (Exception e) {
             model.addAttribute("searchError", "Error searching Discogs: " + e.getMessage());
@@ -58,5 +61,6 @@ public class DiscogsController {
         
         return "mainUser";
     }
+
 
 }
