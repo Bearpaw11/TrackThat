@@ -142,10 +142,10 @@ public class SiteController {
         return "mainUser";
     }
 
-    // creates model attribute to bind the form data. Returns the add collection
-    // page
+    // creates model attribute to bind the form data. Returns the add collection page
     @GetMapping("/addCollection")
     public String addCollection(Model theModel, HttpSession session) {
+
         // Check if user is logged in
         User user = (User) (session.getAttribute("loggedInUser"));
         if (user == null) {
@@ -181,6 +181,7 @@ public class SiteController {
     // get record info to populate form for update
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("recordId") int theId, Model theModel, HttpSession session) {
+
         // Check if user is logged in
         User user = (User) (session.getAttribute("loggedInUser"));
         if (user == null) {
@@ -199,6 +200,7 @@ public class SiteController {
 
     @GetMapping("/deleteRecord")
     public String deleteRecord(@RequestParam("userRecordId") int theId, HttpSession session) {
+
         // Check if user is logged in
         User user = (User) (session.getAttribute("loggedInUser"));
         if (user == null) {
@@ -214,6 +216,7 @@ public class SiteController {
     // creates model attribute to bind the form data. Returns the addWish
     @GetMapping("/addWish")
     public String addWish(Model theModel, HttpSession session) {
+
         // Check if user is logged in
         User user = (User) (session.getAttribute("loggedInUser"));
         if (user == null) {
@@ -228,6 +231,7 @@ public class SiteController {
     @PostMapping("/saveUserWishRecord")
     public String saveUserWishRecord(@ModelAttribute("userWishRecord") UserWishRecord theUserWishRecord,
             @ModelAttribute("loggedInUser") User user, HttpSession session) {
+
         // Check if user is logged in
         User loggedInUser = (User) (session.getAttribute("loggedInUser"));
         if (loggedInUser == null) {
@@ -268,6 +272,7 @@ public class SiteController {
 
     @GetMapping("/deleteWishRecord")
     public String deleteWishRecord(@RequestParam("userWishRecordId") int theId, HttpSession session) {
+
         // Check if user is logged in
         User user = (User) (session.getAttribute("loggedInUser"));
         if (user == null) {
